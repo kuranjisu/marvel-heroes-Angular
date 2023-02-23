@@ -1,0 +1,27 @@
+<h1 class="title"> Which <span id="span1">Marvel</span> Hero Are You? </h1>
+<div class="h2-container">
+    <h2> Choose your character </h2>
+</div>
+<div class="button-container">
+    <ul class="heroes">
+        <li *ngFor="let hero of heroes">
+            <button type="button" class="button" [class.selected]="hero === selectedHero" 
+            (click)="onSelect(hero)">
+                <span>{{hero.name}}</span>
+            </button>
+        </li>
+    </ul>
+</div>
+<div class="container" *ngIf="selectedHero">
+    <h3>Hero's Details</h3>
+    <form>
+        <div class="details">
+            <label>Hero name: </label>
+            <input type="text" [value]="selectedHero.name" id="input-name" disabled>
+        </div>
+        <div class="details">
+            <label>Hero's ability: </label>
+            <textarea [value]="selectedHero.ability" disabled></textarea>
+        </div>
+    </form>
+</div>
